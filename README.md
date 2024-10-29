@@ -12,14 +12,15 @@ This report documents the debugging and setup process for the DevOps internship 
 
 ### Step 1: Cloning the Repository and Setting up Docker
 
-1. **Warning about `version` Attribute in `docker-compose.yaml`**:
+1. **Warning about `version` Attribute in `docker-compose.yml`**:
    - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
-   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yaml` as it was no longer needed.
+   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yml` as it was no longer needed.
 
 ### Step 2: Building Docker Images
 
 1. **Python Application Dockerfile Errors**:
-   - **Issue**: Errors due to typos in `Python/Dockerfile`:
+   - **File**: `Python/Dockerfile`
+   - **Issues**:
      - `WORKDIR /appp` should be `WORKDIR /app`.
      - `COPY appy.py /app` should be `COPY app.py /app`.
      - `RUN pip install flask netiface` should be `RUN pip install flask netifaces`.
@@ -28,7 +29,8 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.
 
 2. **Nginx Dockerfile Errors**:
-   - **Issue**: Errors due to typos in `nginx/Dockerfile`:
+   - **File**: `nginx/Dockerfile`
+   - **Issues**:
      - `FROM nginx:latests` should be `FROM nginx:latest`.
      - `COPY nginix.conf /etc/nginx/nginx.conf` should be `COPY nginx.conf /etc/nginx/nginx.conf`.
      - `COPY ./html /usr/share/nginx/htmll` should be `COPY ./html /usr/share/nginx/html`.
@@ -36,9 +38,20 @@ This report documents the debugging and setup process for the DevOps internship 
      - `CMD ["nginx", "-g", "daemon of;"]` should be `CMD ["nginx", "-g", "daemon off;"]`.
    - **Resolution**: Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
 
+3. **docker-compose.yml File Errors**:
+   - **File**: `docker-compose.yml`
+   - **Issues**:
+     - `"eighty:80"` in ports should be `80:80`.
+     - `./nginx/nginx.conf:/etc/nginx/nginx.confi` should be `./nginx/nginx.conf:/etc/nginx/nginx.conf`.
+     - `"eight thousand"` in `expose` should be `8000`.
+     - `driver: bridg` should be `driver: bridge`.
+     - `compelex_option` is misspelled and unnecessary.
+   - **Resolution**: Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
+
 ### Step 3: Running the Containers with Docker Compose
 
 1. **Nginx Configuration Error in `nginx.conf`**:
+   - **File**: `nginx/nginx.conf`
    - **Issue**: When starting the containers, the Nginx container exited with the error `unknown directive "worker_process" in /etc/nginx/nginx.conf:1`.
    - **Resolution**: Updated `nginx.conf` to correct syntax errors:
      - Changed `worker_process` to `worker_processes`.
@@ -63,10 +76,11 @@ All identified issues were resolved, and the application was deployed successful
 
 ### Summary of Steps
 1. Set up Docker and Docker Compose.
-2. Corrected errors in Dockerfiles and configuration files.
+2. Corrected errors in `docker-compose.yml`, `Python/Dockerfile`, `nginx/Dockerfile`, and `nginx.conf`.
 3. Verified the application through the browser and confirmed Nginx logs.
 
 This README serves as documentation of the debugging process and confirms that the assignment has been completed successfully.
+
 
 
 

@@ -23,10 +23,6 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Resolution**:
      - Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
      - Used bridge for network and removed complex options unless needed.
-    
-2. **Warning about `version` Attribute in `docker-compose.yml`**:
-   - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
-   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yml` as it was no longer needed.
 
 ### Step 2: Building Docker Images
 
@@ -52,7 +48,11 @@ This report documents the debugging and setup process for the DevOps internship 
 
 ### Step 3: Running the Containers with Docker Compose
 
-1. **Nginx Configuration Error in `nginx.conf`**:
+1. **Warning about `version` Attribute in `docker-compose.yml`**:
+   - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
+   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yml` as it was no longer needed.
+
+2. **Nginx Configuration Error in `nginx.conf`**:
    - **File**: `nginx/nginx.conf`
    - **Issue**: When starting the containers, the Nginx container exited with the error `unknown directive "worker_process" in /etc/nginx/nginx.conf:1`.
    - **Resolution**: Updated `nginx.conf` to correct syntax errors:

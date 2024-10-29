@@ -22,6 +22,7 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Issue**: Errors due to typos in `Python/Dockerfile`:
      - `WORKDIR /appp` should be `WORKDIR /app`.
      - `COPY appy.py /app` should be `COPY app.py /app`.
+     - `RUN pip install flask netiface` should be `RUN pip install flask netifaces`.
      - `EXPOSE "eight thousand"` should be `EXPOSE 8000`.
      - `CMD ["pythn", "app.py"]` should be `CMD ["python", "app.py"]`.
    - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.

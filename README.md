@@ -65,16 +65,6 @@ This report documents the debugging and setup process for the DevOps internship 
      - Fixed typos such as `mime.typess` to `mime.types` and `default_typ` to `default_type`.
    - After making these corrections, the Nginx container started without issues.
 
-### Step 4: Accessing the Application and Testing
-
-1. **Verifying Application in Browser**:
-   - **Issue**: None. Accessing `http://localhost` in the browser displayed the application interface as expected.
-   - **Resolution**: Confirmed that the application displayed the IP address, MAC address, username, and timestamp, indicating successful deployment.
-
-2. **Checking Nginx Logs for Request Confirmation**:
-   - **Issue**: None. However, logs needed to be verified to confirm that Nginx was processing requests.
-   - **Resolution**: Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application.
-
 ---
 
 ## Commands Procedure Used (Sequentially)
@@ -112,7 +102,7 @@ local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
 
 ## Conclusion
 
-All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended.
+All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended. Accessing `http://localhost` in the browser displayed the application interface as expected. Confirmed that the application displayed the IP address, MAC address, username, and timestamp, indicating successful deployment. Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application.
 
 ### Summary of Steps
 1. Set up Docker and Docker Compose.

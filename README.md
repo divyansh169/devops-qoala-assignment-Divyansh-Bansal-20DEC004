@@ -18,27 +18,7 @@ This report documents the debugging and setup process for the DevOps internship 
 
 ### Step 2: Building Docker Images
 
-1. **Python Application Dockerfile Errors**:
-   - **File**: `Python/Dockerfile`
-   - **Issues**:
-     - `WORKDIR /appp` should be `WORKDIR /app`.
-     - `COPY appy.py /app` should be `COPY app.py /app`.
-     - `RUN pip install flask netiface` should be `RUN pip install flask netifaces`.
-     - `EXPOSE "eight thousand"` should be `EXPOSE 8000`.
-     - `CMD ["pythn", "app.py"]` should be `CMD ["python", "app.py"]`.
-   - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.
-
-2. **Nginx Dockerfile Errors**:
-   - **File**: `nginx/Dockerfile`
-   - **Issues**:
-     - `FROM nginx:latests` should be `FROM nginx:latest`.
-     - `COPY nginix.conf /etc/nginx/nginx.conf` should be `COPY nginx.conf /etc/nginx/nginx.conf`.
-     - `COPY ./html /usr/share/nginx/htmll` should be `COPY ./html /usr/share/nginx/html`.
-     - `EXPOSE "eighty"` should be `EXPOSE 80`.
-     - `CMD ["nginx", "-g", "daemon of;"]` should be `CMD ["nginx", "-g", "daemon off;"]`.
-   - **Resolution**: Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
-
-3. **docker-compose.yml File Errors**:
+1. **docker-compose.yml File Errors**:
    - **File**: `docker-compose.yml`
    - **Issues**:
      - `"eighty:80"` in ports should be `80:80`.
@@ -49,6 +29,26 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Resolution**:
      - Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
      - Used bridge for network and removed complex options unless needed.
+
+2. **Python Application Dockerfile Errors**:
+   - **File**: `Python/Dockerfile`
+   - **Issues**:
+     - `WORKDIR /appp` should be `WORKDIR /app`.
+     - `COPY appy.py /app` should be `COPY app.py /app`.
+     - `RUN pip install flask netiface` should be `RUN pip install flask netifaces`.
+     - `EXPOSE "eight thousand"` should be `EXPOSE 8000`.
+     - `CMD ["pythn", "app.py"]` should be `CMD ["python", "app.py"]`.
+   - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.
+
+3. **Nginx Dockerfile Errors**:
+   - **File**: `nginx/Dockerfile`
+   - **Issues**:
+     - `FROM nginx:latests` should be `FROM nginx:latest`.
+     - `COPY nginix.conf /etc/nginx/nginx.conf` should be `COPY nginx.conf /etc/nginx/nginx.conf`.
+     - `COPY ./html /usr/share/nginx/htmll` should be `COPY ./html /usr/share/nginx/html`.
+     - `EXPOSE "eighty"` should be `EXPOSE 80`.
+     - `CMD ["nginx", "-g", "daemon of;"]` should be `CMD ["nginx", "-g", "daemon off;"]`.
+   - **Resolution**: Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
 
 ### Step 3: Running the Containers with Docker Compose
 

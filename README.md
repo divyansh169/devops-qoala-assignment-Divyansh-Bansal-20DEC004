@@ -46,7 +46,9 @@ This report documents the debugging and setup process for the DevOps internship 
      - `"eight thousand"` in `expose` should be `8000`.
      - `driver: bridg` should be `driver: bridge`.
      - `compelex_option` is misspelled and unnecessary.
-   - **Resolution**: Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
+   - **Resolution**:
+     - Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
+     - Used bridge for network and removed complex options unless needed.
 
 ### Step 3: Running the Containers with Docker Compose
 

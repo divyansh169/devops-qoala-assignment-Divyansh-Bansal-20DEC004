@@ -119,8 +119,6 @@ All identified issues were resolved, and the application was deployed successful
 2. Corrected errors in `docker-compose.yml`, `Python/Dockerfile`, `nginx/Dockerfile`, and `nginx.conf`.
 3. Verified the application through the browser and confirmed Nginx logs.
 
-This README serves as documentation of the debugging process and confirms that the assignment has been completed successfully.
-
 
 
 

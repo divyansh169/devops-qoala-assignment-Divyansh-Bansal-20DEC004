@@ -89,11 +89,11 @@ Below is the list of commands used during the assignment in sequential order:
 6.  Created a folder with name `html` inside the `nginx` folder.
 7. `docker build -t local-nginx ./nginx`
 8. `docker images`
-
+ ```
 REPOSITORY         TAG       IMAGE ID       CREATED              SIZE
 local-nginx        latest    cbd752383c30   About a minute ago   192MB
 local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
-
+ ```
 9. `docker-compose down`
 10. `docker-compose up`
 11. Accessed `http://localhost` in the browser, which displayed the following details:

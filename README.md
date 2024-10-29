@@ -57,6 +57,8 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Issue**: When starting the containers, the Nginx container exited with the error `unknown directive "worker_process" in /etc/nginx/nginx.conf:1`.
    - **Resolution**: Updated `nginx.conf` to correct syntax errors:
      - Changed `worker_process` to `worker_processes`.
+     - `worker_process auto` to `worker_processes auto;`
+     - `worker_connection 1024;` to `worker_connections 1024;`
      - Fixed typos such as `mime.typess` to `mime.types` and `default_typ` to `default_type`.
    - After making these corrections, the Nginx container started without issues.
 

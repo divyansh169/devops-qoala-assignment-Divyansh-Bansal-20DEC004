@@ -110,7 +110,7 @@ local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
 
 ---
 
-## Final Notes
+## Conclusion
 
 All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended.
 

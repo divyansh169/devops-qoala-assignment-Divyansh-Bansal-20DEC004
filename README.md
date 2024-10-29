@@ -12,12 +12,6 @@ This report documents the debugging and setup process for the DevOps internship 
 
 ### Step 1: Cloning the Repository and Setting up Docker
 
-1. **Warning about `version` Attribute in `docker-compose.yml`**:
-   - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
-   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yml` as it was no longer needed.
-
-### Step 2: Building Docker Images
-
 1. **docker-compose.yml File Errors**:
    - **File**: `docker-compose.yml`
    - **Issues**:
@@ -29,8 +23,14 @@ This report documents the debugging and setup process for the DevOps internship 
    - **Resolution**:
      - Corrected the ports, file paths, and syntax errors in `docker-compose.yml` for accurate container configuration.
      - Used bridge for network and removed complex options unless needed.
+    
+2. **Warning about `version` Attribute in `docker-compose.yml`**:
+   - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
+   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yml` as it was no longer needed.
 
-2. **Python Application Dockerfile Errors**:
+### Step 2: Building Docker Images
+
+1. **Python Application Dockerfile Errors**:
    - **File**: `Python/Dockerfile`
    - **Issues**:
      - `WORKDIR /appp` should be `WORKDIR /app`.
@@ -40,7 +40,7 @@ This report documents the debugging and setup process for the DevOps internship 
      - `CMD ["pythn", "app.py"]` should be `CMD ["python", "app.py"]`.
    - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.
 
-3. **Nginx Dockerfile Errors**:
+2. **Nginx Dockerfile Errors**:
    - **File**: `nginx/Dockerfile`
    - **Issues**:
      - `FROM nginx:latests` should be `FROM nginx:latest`.

@@ -44,7 +44,10 @@ This report documents the debugging and setup process for the DevOps internship 
      - `COPY ./html /usr/share/nginx/htmll` should be `COPY ./html /usr/share/nginx/html`.
      - `EXPOSE "eighty"` should be `EXPOSE 80`.
      - `CMD ["nginx", "-g", "daemon of;"]` should be `CMD ["nginx", "-g", "daemon off;"]`.
-   - **Resolution**: Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
+     - Error of `COPY ./html /usr/share/nginx/html` command in the Nginx Dockerfile failing because the html folder is missing in the nginx directory.
+   - **Resolution**:
+     - Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
+     - Created a folder with name `html` inside the `nginx` folder.
 
 ### Step 3: Running the Containers with Docker Compose
 
@@ -71,6 +74,39 @@ This report documents the debugging and setup process for the DevOps internship 
 2. **Checking Nginx Logs for Request Confirmation**:
    - **Issue**: None. However, logs needed to be verified to confirm that Nginx was processing requests.
    - **Resolution**: Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application.
+
+---
+
+## Commands Procedure Used (Sequentially)
+
+Below is the list of commands used during the assignment in sequential order:
+
+1. `docker --version`
+2. `docker-compose --version`
+3. `git clone https://github.com/qoala-engineering/devops-internship-challenge.git`
+4. `cd devops-internship-challenge`
+5. `docker build -t local-python-app ./Python`
+6.  Created a folder with name `html` inside the `nginx` folder.
+7. `docker build -t local-nginx ./nginx`
+8. `docker images`
+
+REPOSITORY         TAG       IMAGE ID       CREATED              SIZE
+local-nginx        latest    cbd752383c30   About a minute ago   192MB
+local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
+
+9. `docker-compose down`
+10. `docker-compose up`
+11. Accessed `http://localhost` in the browser, which displayed the following details:
+ ```
+ IP Address: 172.18.0.3
+ MAC Address: 00:00:00:00:00:00
+ Username: Guest
+ Timestamp: 2024-10-29 20:01:48
+ Assignment completed successfully!
+ ```
+12. `docker ps`
+13. `docker logs <nginx_container_id>` -> `docker logs 26f31efc3073`
+14. **Logs confirmed** that Nginx was successfully handling requests, indicating a successful setup.
 
 ---
 

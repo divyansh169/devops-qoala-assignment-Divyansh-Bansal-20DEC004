@@ -1,55 +1,80 @@
 # devops-qoala-assignment-Divyansh-Bansal-20DEC004
 Assignment for Qoala DevOps Internship.
 
-**DevOps Assignment Report :** 
+# DevOps Internship Assignment Report
 
-Issues Identified and Resolution Steps
+## Overview
+This report documents the debugging and setup process for the DevOps internship assignment. The goal was to successfully configure, debug, and deploy a Dockerized application. Below is a chronological list of issues encountered, followed by their respective resolutions.
 
-**1. Warning about Docker Compose version attribute:**
+---
 
-    Issue: Running docker-compose up displayed a warning: "version attribute is obsolete; please remove it."
-    Resolution: Removed the version: '3.8' line from docker-compose.yml to avoid the warning.
+## Issues Identified and Resolution Steps
 
-**2. Errors in Nginx Configuration (nginx.conf):**
+### Step 1: Cloning the Repository and Setting up Docker
 
-    Issue: Nginx container exited with an error: "unknown directive 'worker_process'" in /etc/nginx/nginx.conf.
-    Resolution: Corrected typos in nginx.conf:
-        Changed worker_process to worker_processes.
-        Ensured correct syntax for all directives, including events, http, server, and location blocks.
+1. **Warning about `version` Attribute in `docker-compose.yaml`**:
+   - **Issue**: When running `docker-compose up`, a warning message appeared: `the attribute version is obsolete, it will be ignored, please remove it to avoid potential confusion`.
+   - **Resolution**: Removed the `version: '3.8'` line from `docker-compose.yaml` as it was no longer needed.
 
-**3. Python Dockerfile Issues:**
+### Step 2: Building Docker Images
 
-    Issue: The Python Dockerfile contained typos causing the image to fail during the build:
-        WORKDIR /appp instead of WORKDIR /app.
-        COPY appy.py /app instead of COPY app.py /app.
-        CMD ["pythn", "app.py"] instead of CMD ["python", "app.py"].
-    Resolution: Fixed all typos:
-        Corrected WORKDIR, COPY source filename, and CMD syntax.
+1. **Python Application Dockerfile Errors**:
+   - **Issue**: Errors due to typos in `Python/Dockerfile`:
+     - `WORKDIR /appp` should be `WORKDIR /app`.
+     - `COPY appy.py /app` should be `COPY app.py /app`.
+     - `EXPOSE "eight thousand"` should be `EXPOSE 8000`.
+     - `CMD ["pythn", "app.py"]` should be `CMD ["python", "app.py"]`.
+   - **Resolution**: Corrected each typo in `Python/Dockerfile` to ensure proper paths, ports, and command syntax.
 
-**4. Nginx Dockerfile Issues:**
+2. **Nginx Dockerfile Errors**:
+   - **Issue**: Errors due to typos in `nginx/Dockerfile`:
+     - `FROM nginx:latests` should be `FROM nginx:latest`.
+     - `COPY nginix.conf /etc/nginx/nginx.conf` should be `COPY nginx.conf /etc/nginx/nginx.conf`.
+     - `COPY ./html /usr/share/nginx/htmll` should be `COPY ./html /usr/share/nginx/html`.
+     - `EXPOSE "eighty"` should be `EXPOSE 80`.
+     - `CMD ["nginx", "-g", "daemon of;"]` should be `CMD ["nginx", "-g", "daemon off;"]`.
+   - **Resolution**: Corrected all typos in `nginx/Dockerfile` to ensure compatibility with Docker.
 
-    Issue: The Nginx Dockerfile contained typos and incorrect paths:
-        FROM nginx:latests instead of FROM nginx:latest.
-        COPY nginix.conf instead of COPY nginx.conf.
-        Incorrect path for the html directory (COPY ./html /usr/share/nginx/htmll).
-        EXPOSE "eighty" instead of EXPOSE 80.
-        daemon of instead of daemon off in the CMD.
-    Resolution: Corrected all typos and paths to match expected configurations and syntax.
+### Step 3: Running the Containers with Docker Compose
 
-**5. Application Access and Testing:**
+1. **Nginx Configuration Error in `nginx.conf`**:
+   - **Issue**: When starting the containers, the Nginx container exited with the error `unknown directive "worker_process" in /etc/nginx/nginx.conf:1`.
+   - **Resolution**: Updated `nginx.conf` to correct syntax errors:
+     - Changed `worker_process` to `worker_processes`.
+     - Fixed typos such as `mime.typess` to `mime.types` and `default_typ` to `default_type`.
+   - After making these corrections, the Nginx container started without issues.
 
-    Issue: After resolving configuration issues, the application launched but required testing for Nginx logging.
-    Resolution: Accessed http://localhost in a browser to confirm the app was running. Verified Nginx logs using docker logs <nginx_container_id>, confirming successful request handling.
+### Step 4: Accessing the Application and Testing
 
-**Conclusion**
-The application was successfully deployed and accessible on http://localhost, with Nginx properly forwarding requests to the Python app. Screenshots of the running application and logs were captured for submission.
+1. **Verifying Application in Browser**:
+   - **Issue**: None. Accessing `http://localhost` in the browser displayed the application interface as expected.
+   - **Resolution**: Confirmed that the application displayed the IP address, MAC address, username, and timestamp, indicating successful deployment.
+
+2. **Checking Nginx Logs for Request Confirmation**:
+   - **Issue**: None. However, logs needed to be verified to confirm that Nginx was processing requests.
+   - **Resolution**: Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application.
+
+---
+
+## Final Notes
+
+All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended.
+
+### Summary of Steps
+1. Set up Docker and Docker Compose.
+2. Corrected errors in Dockerfiles and configuration files.
+3. Verified the application through the browser and confirmed Nginx logs.
+
+This README serves as documentation of the debugging process and confirms that the assignment has been completed successfully.
 
 
 
+---
+---
 
 
 
-**Assignment :** 
+# Assignment :
 
 # DevOps Assignment: Debugging and Running a Dockerized Application
 

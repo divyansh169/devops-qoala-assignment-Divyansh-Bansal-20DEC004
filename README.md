@@ -95,6 +95,11 @@ local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
  Assignment completed successfully!
  ```
 12. `docker ps`
+ ```
+CONTAINER ID   IMAGE              COMMAND                  CREATED          STATUS          PORTS                NAMES
+26f31efc3073   local-nginx        "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:80->80/tcp   devops-internship-challenge-nginx-1
+deb13ef18752   local-python-app   "python app.py"          13 minutes ago   Up 13 minutes   8000/tcp             python_app
+ ```
 13. `docker logs <nginx_container_id>` -> `docker logs 26f31efc3073`
 14. **Logs confirmed** that Nginx was successfully handling requests, indicating a successful setup.
 

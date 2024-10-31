@@ -1,5 +1,6 @@
 # devops-qoala-assignment-Divyansh-Bansal-20DEC004
 Assignment for Qoala DevOps Internship.
+
 Cloud Deployment Accessible Endpoint IP Address : http://34.68.254.225/
 
 # DevOps Internship Assignment Report

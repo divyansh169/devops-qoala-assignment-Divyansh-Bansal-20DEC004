@@ -95,9 +95,13 @@ local-python-app   latest    bc3fbfe6dd89   11 minutes ago       1.01GB
 11. Accessed `http://localhost` in the browser, which displayed the following details:
  ```
  IP Address: 172.18.0.3
+
  MAC Address: 00:00:00:00:00:00
+
  Username: Guest
+
  Timestamp: 2024-10-29 20:01:48
+
  Assignment completed successfully!
  ```
 12. `docker ps`
@@ -130,8 +134,8 @@ deb13ef18752   local-python-app   "python app.py"          13 minutes ago   Up 1
 17. Open SSH  
 18. `sudo apt update`  
 19. `sudo apt install -y docker.io`  
-20.1. `sudo systemctl start docker`  
-20.2. `sudo systemctl enable docker`  
+20. `sudo systemctl start docker`  
+    `sudo systemctl enable docker`  
 21. `docker --version`  
 22. `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`  
 23. `sudo chmod +x /usr/local/bin/docker-compose`  

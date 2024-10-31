@@ -123,27 +123,73 @@ deb13ef18752   local-python-app   "python app.py"          13 minutes ago   Up 1
 172.18.0.1 - - [29/Oct/2024:20:01:49 +0000] "GET /favicon.ico HTTP/1.1" 404 207 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
  ```
 
+### Cloud Deployment
+
+15. Compute Engine -> VM instances  
+16. Name VM, `devops-docker-app`, zone `us-central1-f`, `e2-micro`, `Ubuntu`, Allow HTTP traffic and Allow HTTPS traffic  
+17. Open SSH  
+18. `sudo apt update`  
+19. `sudo apt install -y docker.io`  
+20.1. `sudo systemctl start docker`  
+20.2. `sudo systemctl enable docker`  
+21. `docker --version`  
+22. `sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`  
+23. `sudo chmod +x /usr/local/bin/docker-compose`  
+24. `docker-compose --version`  
+
+25. Open new SSH  
+26. Click upload file and upload project zip file  
+27. `unzip devops-internship-challenge.zip -d ~/app`  
+28. `cd ~/app`  
+29. `ls` (to verify)  
+30. `cat docker-compose.yaml`  
+31. Build and Start the Application  
+    ```
+    cd ~/app/nginx
+    sudo docker build -t local-nginx .
+    cd ~/app/Python
+    sudo docker build -t local-python-app .
+    cd ~/app
+    ```
+32. `sudo docker-compose up -d`  
+33. `sudo docker-compose ps` (to check the status)  
+    ```
+    divyanshbansal169@devops-docker-app:~/app$ sudo docker-compose ps
+       Name                  Command               State                Ports              
+    ---------------------------------------------------------------------------------------
+    app_nginx_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp,:::80->80/tcp
+    python_app    python app.py                    Up      8000/tcp   
+    ```
+
+34. Accessible Endpoint: External IP address : `http://34.68.254.225/`
+    ```
+    IP Address: 172.18.0.2
+
+    MAC Address: 00:00:00:00:00:00
+
+    Username: Guest
+
+    Timestamp: 2024-10-31 11:19:45
+
+    Assignment completed successfully!
+    ```
+
+
 ---
 
 ## Conclusion
 
-All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended. Accessing `http://localhost` in the browser displayed the application interface as expected. Confirmed that the application displayed the IP address, MAC address, username, and timestamp, indicating successful deployment. Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application.
+All identified issues were resolved, and the application was deployed successfully. The application is accessible on `http://localhost`, with Nginx and the Python application functioning as intended. Accessing `http://localhost` in the browser displayed the application interface as expected. Confirmed that the application displayed the IP address, MAC address, username, and timestamp, indicating successful deployment. Ran `docker logs <nginx_container_id>` to check the logs for incoming requests. Verified that the requests to `http://localhost` were logged by Nginx, confirming successful proxying to the Python application. Also did the the cloud deployment at the Accessible Endpoint IP Address http://34.68.254.225/ .
 
 ### Summary of Steps
 1. Set up Docker and Docker Compose.
 2. Corrected errors in `docker-compose.yml`, `Python/Dockerfile`, `nginx/Dockerfile`, and `nginx.conf`.
 3. Verified the application through the browser and confirmed Nginx logs.
-
-
-
-
-
+4. Deployed the application on cloud.
+5. Accessible Endpoint IP Address http://34.68.254.225/
 
 ---
 ---
-
-
-
 
 
 # Assignment :

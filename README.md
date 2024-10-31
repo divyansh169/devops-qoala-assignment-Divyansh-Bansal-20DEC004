@@ -1,5 +1,6 @@
 # devops-qoala-assignment-Divyansh-Bansal-20DEC004
 Assignment for Qoala DevOps Internship.
+Cloud Deployment Accessible Endpoint IP Address : http://34.68.254.225/
 
 # DevOps Internship Assignment Report
 
@@ -65,6 +66,10 @@ This report documents the debugging and setup process for the DevOps internship 
      - Fixed typos such as `mime.typess` to `mime.types` and `default_typ` to `default_type`.
    - After making these corrections, the Nginx container started without issues.
 
+---
+## Cloud Deployment Accessible Endpoint IP Address
+
+### External IP Address : http://34.68.254.225/
 ---
 
 ## Commands Procedure Used (Sequentially)
